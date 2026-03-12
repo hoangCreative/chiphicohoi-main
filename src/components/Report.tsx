@@ -184,9 +184,6 @@ export default function Report({ scores, responses }: ReportProps) {
   const ArchetypeIcon = archetype.icon;
   const reportRef = useRef<HTMLDivElement>(null);
   const [isDownloading, setIsDownloading] = useState(false);
-  const [expandedArchetype, setExpandedArchetype] = useState<Archetype | null>(null);
-  const [showPrimaryDetails, setShowPrimaryDetails] = useState(false);
-  const [showSecondaryDetails, setShowSecondaryDetails] = useState(false);
 
   const handleDownloadPDF = async () => {
     if (!reportRef.current) return;
@@ -269,11 +266,11 @@ export default function Report({ scores, responses }: ReportProps) {
   }).sort((a, b) => b.gap - a.gap)[0] : { pillar: 'freedom' as Pillar, gap: 0, direction: 'under' };
 
   return (
-    <div className="bg-gray-50 min-h-screen font-sans text-gray-900 pb-20" ref={reportRef}>
+    <div className="bg-gray-50 min-h-screen font-sans text-gray-900 pb-20 overflow-x-hidden" ref={reportRef}>
       
       {/* 1. HERO SECTION */}
       <div className="relative w-full h-[700px] overflow-hidden bg-indigo-950">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 z-0"></div>
+        <div className="absolute inset-0 bg-[url('/images/stardust.png')] opacity-30 z-0"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-10"></div>
         <motion.img 
           initial={{ scale: 1.1, opacity: 0 }}
@@ -316,11 +313,11 @@ export default function Report({ scores, responses }: ReportProps) {
                 <div className="h-px w-16 bg-gradient-to-l from-transparent to-indigo-400"></div>
             </div>
 
-            <h1 className="text-6xl md:text-9xl font-bold mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-6xl md:text-9xl font-bold mb-6 sm:mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl">
               {archetype.title}
             </h1>
             
-            <p className="text-2xl md:text-4xl text-indigo-100 italic max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+            <p className="text-xl sm:text-2xl md:text-4xl text-indigo-100 italic max-w-3xl mx-auto leading-relaxed drop-shadow-md">
               "{archetype.tagline}"
             </p>
 
@@ -329,7 +326,7 @@ export default function Report({ scores, responses }: ReportProps) {
               whileTap={{ scale: 0.95 }}
               onClick={handleDownloadPDF}
               disabled={isDownloading}
-              className="mt-12 px-10 py-5 bg-white text-indigo-950 hover:bg-indigo-50 rounded-full font-bold text-lg flex items-center gap-3 transition-all mx-auto shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6)]"
+              className="mt-8 sm:mt-12 px-6 py-4 sm:px-10 sm:py-5 bg-white text-indigo-950 hover:bg-indigo-50 rounded-full font-bold text-base sm:text-lg flex items-center gap-3 transition-all mx-auto shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6)]"
             >
               {isDownloading ? (
                 <span className="animate-pulse">Đang tạo PDF...</span>
@@ -449,23 +446,7 @@ export default function Report({ scores, responses }: ReportProps) {
                   </div>
                 </div>
 
-                <motion.button
-                  onClick={() => setShowPrimaryDetails(!showPrimaryDetails)}
-                  className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 rounded-xl flex items-center justify-center gap-2 text-white font-medium transition-colors mb-6 backdrop-blur-sm border border-white/10"
-                >
-                  {showPrimaryDetails ? (
-                    <>Thu gọn <ChevronUp className="w-4 h-4" /></>
-                  ) : (
-                    <>Xem chi tiết hành trình & lời khuyên <ChevronDown className="w-4 h-4" /></>
-                  )}
-                </motion.button>
-
-                <motion.div
-                  initial={false}
-                  animate={{ height: showPrimaryDetails ? 'auto' : 0, opacity: showPrimaryDetails ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
+                <div className="mt-8 border-t border-white/20 pt-8">
                   {/* Extended Content for Sample Report or Full Report */}
                   {archetype.story && (
                     <div className="mb-8 space-y-6">
@@ -501,7 +482,7 @@ export default function Report({ scores, responses }: ReportProps) {
                        </div>
                     )}
                   </div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
 
@@ -537,23 +518,7 @@ export default function Report({ scores, responses }: ReportProps) {
                 </p>
               </div>
 
-              <motion.button
-                onClick={() => setShowSecondaryDetails(!showSecondaryDetails)}
-                className="w-full py-3 px-4 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center gap-2 text-gray-700 font-medium transition-colors"
-              >
-                {showSecondaryDetails ? (
-                  <>Thu gọn <ChevronUp className="w-4 h-4" /></>
-                ) : (
-                  <>Xem chi tiết Archetype phụ <ChevronDown className="w-4 h-4" /></>
-                )}
-              </motion.button>
-
-              <motion.div
-                initial={false}
-                animate={{ height: showSecondaryDetails ? 'auto' : 0, opacity: showSecondaryDetails ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
-              >
+              <div className="mt-8 border-t border-gray-200 pt-8">
                 <div className="pt-6 space-y-6">
                   {/* Basic Info */}
                   <div className="space-y-4">
@@ -605,7 +570,7 @@ export default function Report({ scores, responses }: ReportProps) {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
               </div>
             </motion.div>
           </div>
@@ -635,7 +600,7 @@ export default function Report({ scores, responses }: ReportProps) {
                   </div>
                 </div>
               </div>
-              <div className="h-[400px] w-full">
+              <div className="h-[280px] sm:h-[350px] md:h-[400px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
                     <PolarGrid stroke="#e5e7eb" />
@@ -686,7 +651,7 @@ export default function Report({ scores, responses }: ReportProps) {
                   </RadarChart>
                 </ResponsiveContainer>
               </div>
-              <div className="flex justify-center gap-8 mt-4 text-sm font-medium">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 mt-4 text-sm font-medium">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-purple-500"></div>
                   <span className="text-gray-600">Điều bạn NÓI là quan trọng</span>
@@ -768,39 +733,135 @@ export default function Report({ scores, responses }: ReportProps) {
                 </p>
                 
                 <div className="grid grid-cols-2 gap-4 mt-6">
+                  {/* Trục Tung - Awareness */}
                   <div className="bg-white/60 p-4 rounded-xl">
                     <div className="flex items-center gap-2 mb-1">
-                      <div className="text-sm text-gray-500">Chỉ số OCA</div>
+                      <div className="text-sm text-gray-500 font-bold">Trục Tung (Awareness)</div>
                       <div className="group relative">
                         <Info className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-500 transition-colors" />
                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-gray-900 text-white text-xs rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                          <p><strong className="text-blue-300">OCA (Overall Consciousness Awareness):</strong> Mức độ nhận thức về bản thân, cảm xúc và các lựa chọn trong cuộc sống.</p>
+                          <p><strong className="text-blue-300">Nhận thức (Awareness):</strong> Tổng hợp từ bài đánh giá OCA (60%) và Tự đánh giá (40%). Đo lường độ sâu sắc trong việc hiểu rõ bản thân và các tác động từ quyết định của bạn.</p>
                           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 border-8 border-transparent border-t-gray-900"></div>
                         </div>
                       </div>
                     </div>
-                    <div className="text-2xl font-bold text-gray-900">{scores.modules.m3.ocaScore}/12</div>
+                    {/* Tính phần trăm hiển thị (lấy từ selfReportAwareness và oca) - Do không get được biến awareness ở đây, tạm tính qua OCA thô */}
+                    <div className="text-2xl font-bold text-gray-900">{Math.round((scores.modules.m3.ocaScore / 12) * 100)}%</div>
                     <div className="h-2 bg-gray-200 rounded-full mt-2 overflow-hidden">
                       <div className="h-full bg-blue-500" style={{ width: `${(scores.modules.m3.ocaScore / 12) * 100}%` }}></div>
                     </div>
+                    <div className="text-[10px] text-gray-400 mt-2">Dựa trên Chỉ số Tỉnh thức OCA ({scores.modules.m3.ocaScore}/12)</div>
                   </div>
+
+                  {/* Trục Hoành - Coherence */}
                   <div className="bg-white/60 p-4 rounded-xl">
                     <div className="flex items-center gap-2 mb-1">
-                      <div className="text-sm text-gray-500">Chỉ số CTC</div>
+                      <div className="text-sm text-gray-500 font-bold">Trục Hoành (Coherence)</div>
                       <div className="group relative">
                         <Info className="w-4 h-4 text-gray-400 cursor-help hover:text-green-500 transition-colors" />
                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-gray-900 text-white text-xs rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                          <p><strong className="text-green-300">CTC (Capacity to Change):</strong> Khả năng chuyển hóa nhận thức thành hành động cụ thể để thay đổi cuộc đời.</p>
+                          <p><strong className="text-green-300">Nhất quán (Coherence):</strong> Tổng hợp từ độ lệch 7 Trụ cột (60%) và Tự đánh giá (40%). Hành động thực tế của bạn có đang khớp với những gì bạn nói hay không.</p>
                           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 border-8 border-transparent border-t-gray-900"></div>
                         </div>
                       </div>
                     </div>
-                    <div className="text-2xl font-bold text-gray-900">{scores.modules.m4.ctcScore}/30</div>
+                    {/* Tính phần trăm hiển thị VBC */}
+                    <div className="text-2xl font-bold text-gray-900">{Math.round(scores.modules.m2.vbcScore * 100)}%</div>
                     <div className="h-2 bg-gray-200 rounded-full mt-2 overflow-hidden">
-                      <div className="h-full bg-green-500" style={{ width: `${(scores.modules.m4.ctcScore / 30) * 100}%` }}></div>
+                      <div className="h-full bg-green-500" style={{ width: `${scores.modules.m2.vbcScore * 100}%` }}></div>
+                    </div>
+                    <div className="text-[10px] text-gray-400 mt-2">Dựa trên Độ nhất quán 7 Trụ Cột VBC</div>
+                  </div>
+                </div>
+
+                {/* 2D Quadrant Matrix */}
+                <div className="mt-8 bg-white/60 p-6 md:p-12 rounded-3xl relative shadow-sm border border-gray-100 flex flex-col items-center">
+                  <div className="flex items-center gap-2 mb-4 justify-center w-full">
+                     <Compass className="w-5 h-5 text-indigo-500" />
+                     <h4 className="font-bold text-gray-900 text-xl">Bản đồ Định vị Chi tiết</h4>
+                  </div>
+                  <p className="text-gray-500 text-sm mb-12 text-center max-w-md">Vị trí chẩn đoán dựa trên mức độ Nhận thức thấu đáo và tính Nhất quán trong hành động của bạn.</p>
+                  
+                  <div className="relative w-full max-w-[280px] md:max-w-[340px] mx-auto mb-8 mt-4">
+                    {/* Top Label */}
+                    <div className="absolute -top-10 left-0 right-0 text-center text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">
+                      Nhận thức Cao (Awareness)
+                    </div>
+                    {/* Bottom Label */}
+                    <div className="absolute -bottom-10 left-0 right-0 text-center text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap">
+                      Nhận thức Thấp
+                    </div>
+                    {/* Left Label - hidden on small mobile */}
+                    <div className="absolute top-0 bottom-0 -left-12 md:-left-16 hidden sm:flex items-center justify-center">
+                      <div className="text-[10px] md:text-xs font-bold text-gray-400 uppercase -rotate-90 whitespace-nowrap tracking-widest">
+                        Nhất quán Thấp
+                      </div>
+                    </div>
+                    {/* Right Label - hidden on small mobile */}
+                    <div className="absolute top-0 bottom-0 -right-12 md:-right-16 hidden sm:flex items-center justify-center">
+                      <div className="text-[10px] md:text-xs font-bold text-gray-400 uppercase rotate-90 whitespace-nowrap tracking-widest">
+                        Nhất quán Cao
+                      </div>
+                    </div>
+
+                    {/* Matrix Grid Box */}
+                    <div className="relative w-full aspect-square border-2 border-gray-200 rounded-xl bg-white shadow-inner">
+                      {/* Inner Layer for quadrant backgrounds (clips to rounded corners) */}
+                      <div className="absolute inset-0 rounded-[10px] overflow-hidden">
+                        {/* 03. Rung lắc (Top-Left) */}
+                        <div className="absolute top-0 left-0 w-[55%] h-[45%] bg-yellow-50 flex items-center justify-center">
+                          <span className="text-yellow-600/30 font-bold uppercase text-xs md:text-sm tracking-widest">03. Rung lắc</span>
+                        </div>
+                        {/* 04. Vững chãi (Top-Right) */}
+                        <div className="absolute top-0 right-0 w-[45%] h-[45%] bg-emerald-50 flex items-center justify-center">
+                          <span className="text-emerald-600/30 font-bold uppercase text-xs md:text-sm tracking-widest">04. Vững chãi</span>
+                        </div>
+                        {/* 02. Mâu thuẫn (Bottom-Left) */}
+                        <div className="absolute bottom-0 left-0 w-[55%] h-[55%] bg-gray-50 flex items-center justify-center">
+                          <span className="text-gray-500/30 font-bold uppercase text-xs md:text-sm tracking-widest">02. Mâu thuẫn</span>
+                        </div>
+                        {/* 01. Ngủ đông (Bottom-Right) */}
+                        <div className="absolute bottom-0 right-0 w-[45%] h-[55%] bg-blue-50 flex items-center justify-center">
+                          <span className="text-blue-600/30 font-bold uppercase text-xs md:text-sm tracking-widest">01. Ngủ đông</span>
+                        </div>
+                        
+                        {/* Axes lines */}
+                        <div className="absolute top-0 bottom-0 w-px bg-gray-300 z-10" style={{ left: '55%' }}></div>
+                        <div className="absolute left-0 right-0 h-px bg-gray-300 z-10" style={{ top: '45%' }}></div>
+                        <div className="absolute w-2 h-2 rounded-full bg-gray-400 z-10" style={{ left: 'calc(55% - 4px)', top: 'calc(45% - 4px)' }}></div>
+                      </div>
+
+                      {/* Data Point Layer - Overflow Visible to prevent tooltip clipping */}
+                      <div className="absolute inset-0 z-30 pointer-events-none">
+                        <div 
+                          className="absolute w-5 h-5 -ml-2.5 mb-2.5 rounded-full bg-indigo-600 border-[3px] border-white shadow-[0_0_10px_rgba(79,70,229,0.5)] flex items-center justify-center"
+                          style={{ 
+                            left: `${Math.max(2, Math.min(98, scores.composite.coherence * 100))}%`, 
+                            bottom: `${Math.max(2, Math.min(98, scores.composite.awareness * 100))}%`,
+                            transition: 'left 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.5s, bottom 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.5s'
+                          }}
+                        >
+                          {/* Pulse Effect */}
+                          <div className="absolute inset-0 rounded-full bg-indigo-500 animate-ping opacity-75"></div>
+                          
+                          {/* Dynamic Tooltip Position */}
+                          {scores.composite.awareness > 0.8 ? (
+                            <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] md:text-xs py-1 px-2.5 rounded whitespace-nowrap shadow-md font-medium">
+                              Bạn ở đây
+                              <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
+                            </div>
+                          ) : (
+                            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] md:text-xs py-1 px-2.5 rounded whitespace-nowrap shadow-md font-medium">
+                              Bạn ở đây
+                              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+
               </div>
 
               <div className="w-full md:w-1/3 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
@@ -863,39 +924,28 @@ export default function Report({ scores, responses }: ReportProps) {
             {(Object.keys(archetypeDetails) as Archetype[]).filter(a => a !== scores.composite.archetype.primary).map((key) => {
               const arch = archetypeDetails[key];
               const Icon = arch.icon;
-              const isExpanded = expandedArchetype === key;
 
               return (
-                <motion.div 
+                <div 
                   key={key}
-                  layout
-                  className={`bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-shadow ${isExpanded ? 'col-span-full' : ''}`}
-                  onClick={() => setExpandedArchetype(isExpanded ? null : key)}
+                  className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col h-full"
                 >
-                  <div className="p-6">
+                  <div className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className={`p-3 rounded-xl ${isExpanded ? 'bg-indigo-100 text-indigo-600' : 'bg-gray-100 text-gray-600'}`}>
+                      <div className="p-3 rounded-xl bg-gray-100 text-gray-600">
                         <Icon className="w-6 h-6" />
                       </div>
                       <div>
                         <h4 className="font-bold text-gray-900">{arch.title}</h4>
                         <p className="text-xs text-gray-500 uppercase tracking-wider">{arch.tagline}</p>
                       </div>
-                      <div className="ml-auto">
-                        {isExpanded ? <ChevronUp className="w-5 h-5 text-gray-400" /> : <ChevronDown className="w-5 h-5 text-gray-400" />}
-                      </div>
                     </div>
                     
-                    <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+                    <p className="text-gray-600 text-sm mb-4">
                       {arch.description}
                     </p>
 
-                    {isExpanded && (
-                      <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="pt-4 border-t border-gray-100 space-y-4"
-                      >
+                    <div className="pt-4 border-t border-gray-100 space-y-4 mt-auto">
                          <div className="grid md:grid-cols-2 gap-4">
                             <div className="bg-gray-50 p-4 rounded-xl">
                               <div className="text-xs font-bold uppercase text-emerald-600 mb-1">Siêu năng lực</div>
@@ -910,10 +960,9 @@ export default function Report({ scores, responses }: ReportProps) {
                             <div className="text-xs font-bold uppercase text-indigo-600 mb-1">Lời khuyên</div>
                             <p className="text-sm text-indigo-800 italic">"{arch.advice}"</p>
                          </div>
-                      </motion.div>
-                    )}
+                    </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

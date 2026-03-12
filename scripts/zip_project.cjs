@@ -7,7 +7,7 @@ function walkDir(dir, callback) {
     let dirPath = path.join(dir, f);
     let isDirectory = fs.statSync(dirPath).isDirectory();
     if (isDirectory) {
-      if (!['node_modules', '.git', '.gemini', 'dist'].includes(f)) {
+      if (!['node_modules', '.git', '.gemini', 'dist', 'scripts'].includes(f)) {
         walkDir(dirPath, callback);
       }
     } else {
@@ -41,7 +41,7 @@ filesToZip.forEach(file => {
 });
 
 console.log('Copied lightweight files. Zipping...');
-execSync(`powershell -Command "Compress-Archive -Path '${tempDir}\\*' -DestinationPath '..\\TieuHanhTinh_SourceCode_Light.zip' -Force"`);
+execSync(`powershell -Command "Compress-Archive -Path '${tempDir}\\*' -DestinationPath '..\\TieuHanhTinh_SourceCode_Light_V2.0.zip' -Force"`);
 
 fs.rmSync(tempDir, { recursive: true, force: true });
-console.log('Done creating TieuHanhTinh_SourceCode_Light.zip (Without heavy files)');
+console.log('Done creating TieuHanhTinh_SourceCode_Light_V2.0.zip (Without heavy files)');

@@ -58,7 +58,7 @@ export default function App() {
             setView('landing');
             window.scrollTo(0, 0);
           }}
-          className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 flex items-center gap-2 bg-white/80 backdrop-blur-md border border-gray-200 shadow-lg text-indigo-600 hover:text-indigo-800 hover:bg-white rounded-full px-4 py-2 sm:px-5 sm:py-3 font-semibold transition-all hover:scale-105 active:scale-95 group"
+          className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 flex items-center gap-2 bg-white/80 backdrop-blur-md border border-gray-200 shadow-lg text-indigo-600 hover:text-indigo-800 hover:bg-white rounded-full px-4 py-2 sm:px-5 sm:py-3 font-semibold transition-all hover:scale-105 active:scale-95 group min-h-[44px]"
         >
           <Home className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
           <span className="hidden sm:inline">Trang Chủ</span>
@@ -83,7 +83,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="min-h-screen py-12"
+            className="min-h-screen py-8 sm:py-12"
           >
             <Assessment onComplete={handleComplete} />
           </motion.div>

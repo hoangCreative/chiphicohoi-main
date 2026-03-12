@@ -334,29 +334,29 @@ export function calculateScores(responses: UserResponses): Scores {
   const coherence = (vbcScore * 0.6) + (selfReportCoherence * 0.4);
 
   let position: Scores['composite']['quadrant']['position'] = 'unconscious_incoherent';
-  let qTitle = 'Chưa tỉnh thức - Chưa nhất quán';
-  let qDesc = 'Bạn đang trôi theo dòng đời và cảm thấy mâu thuẫn nhưng chưa rõ nguyên nhân.';
+  let qTitle = '02. Mâu thuẫn (Conflict)';
+  let qDesc = 'Khủng hoảng, lạc lối. Bạn đang cảm thấy đau khổ, mâu thuẫn nội tâm sâu sắc nhưng chưa thực sự hiểu rõ nguyên nhân gốc rễ.';
   let qColor = 'text-gray-500 bg-gray-50 border-gray-200';
-  let qAdvice = 'Bạn cần bắt đầu bằng việc quan sát lại bản thân. Hãy dành thời gian tĩnh lặng mỗi ngày để lắng nghe tiếng nói bên trong.';
+  let qAdvice = 'Bạn cần bắt đầu bằng việc quan sát lại bản thân. Hãy dành thời gian tĩnh lặng mỗi ngày để lắng nghe tiếng nói bên trong thay vì trốn tránh.';
 
   if (awareness > 0.55 && coherence > 0.55) {
     position = 'conscious_coherent';
-    qTitle = 'Tỉnh thức - Nhất quán';
-    qDesc = 'Bạn biết rõ mình muốn gì và đang sống đúng với điều đó.';
+    qTitle = '04. Vững chãi (Grounded)';
+    qDesc = 'Đích đến. Bạn hiểu rõ chính mình, sống đúng với hệ giá trị cốt lõi và đang tiếp cận sự an lạc tự thân.';
     qColor = 'text-emerald-500 bg-emerald-50 border-emerald-200';
-    qAdvice = 'Bạn đang ở trạng thái lý tưởng. Hãy tiếp tục duy trì và lan tỏa năng lượng tích cực này đến những người xung quanh.';
+    qAdvice = 'Bạn đang ở trạng thái lý tưởng nhất của Ma trận. Hãy tiếp tục duy trì quỹ đạo này và lan tỏa năng lượng tích cực đến những người xung quanh.';
   } else if (awareness > 0.55) {
     position = 'conscious_incoherent';
-    qTitle = 'Tỉnh thức - Chưa nhất quán';
-    qDesc = 'Bạn nhận ra mâu thuẫn giữa giá trị và hành động nhưng chưa thay đổi được.';
-    qColor = 'text-yellow-500 bg-yellow-50 border-yellow-200';
-    qAdvice = 'Bạn đang ở giai đoạn "Rung lắc" cần thiết để lột xác. Đừng quay lại giấc ngủ đông. Hãy bắt đầu bằng những hành động nhỏ nhất để thu hẹp khoảng cách giữa Lời nói và Việc làm.';
+    qTitle = '03. Rung lắc (Shaking)';
+    qDesc = 'Bạn đã nhận ra vấn đề nhưng chưa đủ lực để thay đổi (lời nói chưa đi đôi với hành động). Đây là giai đoạn đau đớn nhưng cần thiết để lột xác.';
+    qColor = 'text-yellow-600 bg-yellow-50 border-yellow-200';
+    qAdvice = 'Đừng quay lại giấc ngủ đông! Bạn đang tiếp cận sự chuyển hóa. Hãy bắt đầu bằng những hành động nhỏ nhất để thu hẹp khoảng cách giữa Tuyên bố và Thực tế.';
   } else if (coherence > 0.55) {
     position = 'unconscious_coherent';
-    qTitle = 'Chưa tỉnh thức - Nhất quán';
-    qDesc = 'Bạn sống khá ổn định nhưng có thể theo quán tính, chưa thực sự hiểu sâu sắc lý do.';
+    qTitle = '01. Ngủ đông (Hibernation)';
+    qDesc = 'Ổn định nhưng thiếu sức sống. Bạn đang sống theo quán tính và kỳ vọng xã hội (hành động nhất quán theo một kịch bản mượn của người khác).';
     qColor = 'text-blue-500 bg-blue-50 border-blue-200';
-    qAdvice = 'Cuộc sống của bạn có vẻ ổn, nhưng hãy tự hỏi: Đây có thực sự là cuộc đời BẠN muốn sống, hay chỉ là kịch bản của xã hội? Hãy thử khám phá những khía cạnh mới của bản thân.';
+    qAdvice = 'Cuộc sống của bạn có vẻ "ổn", nhưng hãy tự hỏi: Đây có thực sự là cuộc đời BẠN muốn sống, hay chỉ là sống thay kỳ vọng của người khác? Hãy thử bứt phá giới hạn an toàn.';
   }
 
   return {

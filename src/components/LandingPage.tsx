@@ -110,22 +110,22 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
             <span className="inline-block py-1 px-3 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-xs md:text-sm tracking-[0.2em] uppercase mb-6">
               Học thuyết Chi phí Cơ hội
             </span>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
               Tiểu Hành Tinh
             </h1>
-            <p className="text-xl md:text-3xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+            <p className="text-lg sm:text-xl md:text-3xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
               "Cuốn sách này không vẽ ra quỹ đạo cho bạn.<br className="hidden md:block" /> 
               Nó chỉ giúp bạn nhìn thấy <span className="text-white font-medium italic">quỹ đạo của chính mình</span>."
             </p>
             
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <div className="flex flex-col items-stretch sm:items-center sm:flex-row justify-center gap-4 sm:gap-6 w-full px-2 sm:px-0">
               <motion.button
                 onClick={() => scrollTo(philosophyRef)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-10 py-5 bg-white text-black text-lg font-bold rounded-full overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] transition-all duration-300"
+                className="group relative px-8 py-4 sm:px-10 sm:py-5 bg-white text-black text-base sm:text-lg font-bold rounded-full overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] transition-all duration-300"
               >
-                <span className="relative z-10 flex items-center gap-3">
+                <span className="relative z-10 flex items-center justify-center gap-3">
                   TẠI SAO TÔI LẠC LỐI? <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
                 </span>
               </motion.button>
@@ -136,7 +136,7 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative inline-flex px-10 py-5 bg-indigo-600/40 border border-indigo-400/30 text-white text-lg font-bold rounded-full shadow-[0_0_40px_rgba(79,70,229,0.2)] hover:shadow-[0_0_60px_rgba(79,70,229,0.4)] hover:bg-indigo-600/60 backdrop-blur-md transition-all duration-300"
+                className="group relative inline-flex justify-center px-8 py-4 sm:px-10 sm:py-5 bg-indigo-600/40 border border-indigo-400/30 text-white text-base sm:text-lg font-bold rounded-full shadow-[0_0_40px_rgba(79,70,229,0.2)] hover:shadow-[0_0_60px_rgba(79,70,229,0.4)] hover:bg-indigo-600/60 backdrop-blur-md transition-all duration-300"
               >
                 <span className="relative z-10 flex items-center gap-3">
                   ĐỌC THỬ SÁCH <BookOpen className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -144,26 +144,26 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
               </motion.a>
             </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12 text-center md:text-left pt-12">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
-                <Clock className="w-8 h-8" />
+          <div className="flex flex-row items-center justify-center gap-6 sm:gap-12 text-center pt-10 sm:pt-12">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                <Clock className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
               <div>
-                <p className="text-3xl font-black text-white">10 Phút</p>
-                <p className="text-gray-400">Tâm trí thả lỏng</p>
+                <p className="text-2xl sm:text-3xl font-black text-white">10 Phút</p>
+                <p className="text-gray-400 text-sm sm:text-base">Tâm trí thả lỏng</p>
               </div>
             </div>
             
-            <div className="hidden md:block w-px h-16 bg-white/10"></div>
+            <div className="w-px h-12 sm:h-16 bg-white/10"></div>
             
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-rose-500/20 flex items-center justify-center text-rose-400">
-                <FileText className="w-8 h-8" />
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-rose-500/20 flex items-center justify-center text-rose-400">
+                <FileText className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
               <div>
-                <p className="text-3xl font-black text-white">28</p>
-                <p className="text-gray-400">Câu hỏi trắc nghiệm</p>
+                <p className="text-2xl sm:text-3xl font-black text-white">28</p>
+                <p className="text-gray-400 text-sm sm:text-base">Câu hỏi trắc nghiệm</p>
               </div>
             </div>
           </div>
@@ -218,9 +218,9 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="flex flex-col md:flex-row gap-8 bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-indigo-500/30 transition-colors overflow-hidden relative group"
+                className="flex flex-col md:flex-row gap-6 md:gap-8 bg-white/5 p-5 sm:p-8 rounded-3xl border border-white/10 hover:border-indigo-500/30 transition-colors overflow-hidden relative group"
               >
-                <div className="md:w-1/3 shrink-0 rounded-2xl overflow-hidden aspect-video md:aspect-square relative">
+                <div className="md:w-1/3 shrink-0 rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-video md:aspect-square relative">
                   <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors z-10"></div>
                   <img src="/images/golden_handcuffs.png" alt="Chiếc còng tay vàng" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute top-4 left-4 z-20 w-12 h-12 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-blue-400 border border-white/10">
@@ -244,9 +244,9 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="flex flex-col md:flex-row-reverse gap-8 bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-purple-500/30 transition-colors overflow-hidden relative group"
+                className="flex flex-col md:flex-row-reverse gap-6 md:gap-8 bg-white/5 p-5 sm:p-8 rounded-3xl border border-white/10 hover:border-purple-500/30 transition-colors overflow-hidden relative group"
               >
-                <div className="md:w-1/3 shrink-0 rounded-2xl overflow-hidden aspect-video md:aspect-square relative">
+                <div className="md:w-1/3 shrink-0 rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-video md:aspect-square relative">
                   <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-colors z-10"></div>
                   <img src="/images/drifting_astronaut.png" alt="Sự trôi dạt vô định" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute top-4 right-4 z-20 w-12 h-12 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-purple-400 border border-white/10">
@@ -270,9 +270,9 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="flex flex-col md:flex-row gap-8 bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-rose-500/30 transition-colors overflow-hidden relative group"
+                className="flex flex-col md:flex-row gap-6 md:gap-8 bg-white/5 p-5 sm:p-8 rounded-3xl border border-white/10 hover:border-rose-500/30 transition-colors overflow-hidden relative group"
               >
-                <div className="md:w-1/3 shrink-0 rounded-2xl overflow-hidden aspect-video md:aspect-square relative">
+                <div className="md:w-1/3 shrink-0 rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-video md:aspect-square relative">
                   <div className="absolute inset-0 bg-rose-900/20 group-hover:bg-transparent transition-colors z-10"></div>
                   <img src="/images/shadow_of_expectations.png" alt="Cái bóng của kỳ vọng" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute top-4 left-4 z-20 w-12 h-12 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-rose-400 border border-white/10">
@@ -546,7 +546,7 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
       <section ref={authorRef} className="py-24 px-6 bg-white text-black min-h-screen flex items-center">
         <div className="max-w-6xl mx-auto w-full">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
-            <div className="w-full lg:w-1/3 sticky top-24">
+            <div className="w-full lg:w-1/3 lg:sticky lg:top-24">
               <div className="aspect-[3/4] bg-gray-100 rounded-2xl overflow-hidden relative shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-gray-200 group">
                 {/* Image using object-cover to crop nicely into 3:4 ratio */}
                 <img 
@@ -683,7 +683,7 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <div className="inline-block px-4 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-bold uppercase tracking-widest">
-              Hướng dẫn đọc báo cáo
+              Demo Báo Cáo
             </div>
             <h2 className="text-3xl md:text-5xl font-bold">Giải mã Bản đồ Nội tâm của bạn</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
@@ -823,14 +823,14 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
               Bài trắc nghiệm chuyên sâu gồm <strong>28 câu hỏi</strong> sẽ giúp bạn vẽ lại bản đồ nội tâm và định vị chính xác bạn đang ở đâu trong vũ trụ này.
             </p>
             
-            <div className="pt-8 flex flex-col md:flex-row items-center justify-center gap-6">
+            <div className="pt-8 flex flex-col items-stretch sm:items-center sm:flex-row justify-center gap-4 sm:gap-6 px-2 sm:px-0">
               <motion.button
                 onClick={onStart}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-6 bg-white text-indigo-950 text-xl font-bold rounded-full shadow-[0_0_50px_rgba(255,255,255,0.3)] hover:shadow-[0_0_80px_rgba(255,255,255,0.5)] transition-all flex items-center gap-3"
+                className="px-8 py-5 sm:px-12 sm:py-6 bg-white text-indigo-950 text-lg sm:text-xl font-bold rounded-full shadow-[0_0_50px_rgba(255,255,255,0.3)] hover:shadow-[0_0_80px_rgba(255,255,255,0.5)] transition-all flex items-center justify-center gap-3"
               >
-                BẮT ĐẦU GIẢI MÃ NGAY <ArrowRight className="w-6 h-6" />
+                BẮT ĐẦU GIẢI MÃ NGAY <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.button>
               
               {onSampleReport && (
@@ -838,21 +838,21 @@ export default function LandingPage({ onStart, onSampleReport, onCsvUpload, onGo
                   onClick={onSampleReport}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 bg-transparent border border-white/30 text-white text-xl font-bold rounded-full hover:bg-white/10 transition-all flex items-center gap-3 backdrop-blur-sm"
+                  className="px-8 py-5 sm:px-12 sm:py-6 bg-transparent border border-white/30 text-white text-lg sm:text-xl font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm"
                 >
-                  XEM BÁO CÁO MẪU <BookOpen className="w-6 h-6" />
+                  XEM BÁO CÁO MẪU <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.button>
               )}
             </div>
 
-            <div className="pt-6 flex flex-col md:flex-row items-center justify-center gap-4">
+            <div className="pt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 px-2 sm:px-0">
 
               {onCsvUpload && (
                 <motion.button
                   onClick={onCsvUpload}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-emerald-600/50 border border-emerald-400/30 text-white text-lg font-semibold rounded-full hover:bg-emerald-600/70 transition-all flex items-center gap-2 backdrop-blur-sm"
+                  className="px-6 py-4 sm:px-8 bg-emerald-600/50 border border-emerald-400/30 text-white text-base sm:text-lg font-semibold rounded-full hover:bg-emerald-600/70 transition-all flex items-center justify-center gap-2 backdrop-blur-sm"
                 >
                   NHẬP FILE CSV ĐỂ XUẤT BÁO CÁO
                 </motion.button>

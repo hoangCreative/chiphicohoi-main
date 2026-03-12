@@ -188,7 +188,7 @@ DỮ LIỆU NGƯỜI DÙNG HIỆN TẠI:
         animate={{ scale: 1, opacity: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl flex items-center justify-center transition-colors ${isOpen ? 'hidden' : 'flex'} bg-indigo-600 text-white`}
+        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 p-4 rounded-full shadow-2xl flex items-center justify-center transition-colors ${isOpen ? 'hidden' : 'flex'} bg-indigo-600 text-white`}
       >
         <MessageCircle className="w-8 h-8" />
         <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></span>
@@ -201,7 +201,7 @@ DỮ LIỆU NGƯỜI DÙNG HIỆN TẠI:
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="fixed bottom-6 right-6 z-50 w-[90vw] md:w-[400px] h-[600px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden"
+            className="fixed bottom-0 left-0 right-0 sm:bottom-6 sm:right-6 sm:left-auto z-50 w-full sm:w-[400px] h-[85vh] sm:h-[600px] sm:max-h-[80vh] bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-4 flex items-center justify-between text-white">
